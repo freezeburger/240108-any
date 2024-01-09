@@ -96,7 +96,7 @@
   <li class="breadcrumb-item">Components</li>
   <li class="breadcrumb-item"
   >
-  ProductPaginationComponent</li>
+  ProductViewComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -109,8 +109,8 @@
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
         <li class="nav-item">
-            <a href="#templateData" class="nav-link"
-                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
         </li>
         <li class="nav-item">
             <a href="#tree" class="nav-link"
@@ -123,7 +123,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/product/product-pagination/product-pagination.component.ts</code>
+    <code>src/app/product/views/product-view.component.ts</code>
 </p>
 
 
@@ -149,25 +149,32 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-product-pagination</code></td>
+                <td class="col-md-9"><code>app-product-view</code></td>
             </tr>
-
-
 
 
 
 
             <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./product-pagination.component.html</code></td>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code></code></td>
             </tr>
-
-
 
             <tr>
-                <td class="col-md-3">styleUrl</td>
-                <td class="col-md-9"><code>./product-pagination.component.scss</code></td>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div&gt;
+
+  &lt;app-product-search&gt;&lt;/app-product-search&gt;
+
+  &lt;app-product-list [withPagination]&#x3D;&quot;true&quot;&gt;&lt;/app-product-list&gt;
+
+&lt;/div&gt;
+</code></pre></td>
             </tr>
+
+
+
+
 
 
 
@@ -192,21 +199,29 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 
 @Component({
-  selector: &#x27;app-product-pagination&#x27;,
-  templateUrl: &#x27;./product-pagination.component.html&#x27;,
-  styleUrl: &#x27;./product-pagination.component.scss&#x27;
+  selector: &#x27;app-product-view&#x27;,
+  template: &#x60;
+    &lt;div&gt;
+
+      &lt;app-product-search&gt;&lt;/app-product-search&gt;
+
+      &lt;app-product-list [withPagination]&#x3D;&quot;true&quot;&gt;&lt;/app-product-list&gt;
+
+    &lt;/div&gt;
+  &#x60;,
+  styles: &#x60;&#x60;
 })
-export class ProductPaginationComponent {
+export class ProductViewComponent {
 
 }
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;product-pagination works!&lt;/p&gt;
+
+    <div class="tab-pane fade " id="styleData">
+            <pre class="line-numbers"><code class="language-scss">
 </code></pre>
     </div>
-
 
     <div class="tab-pane fade " id="tree">
         <div id="tree-container"></div>
@@ -233,10 +248,10 @@ export class ProductPaginationComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>product-pagination works!</p></div>'
+        var COMPONENT_TEMPLATE = '<div><div>  <app-product-search></app-product-search>  <app-product-list [withPagination]="true"></app-product-list></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'PostActionsComponent', 'selector': 'app-post-actions'},{'name': 'PostConsultationComponent', 'selector': 'app-post-consultation'},{'name': 'PostCreationFormComponent', 'selector': 'app-post-creation-form'},{'name': 'PostListComponent', 'selector': 'app-post-list'},{'name': 'PostListPaginationComponent', 'selector': 'app-post-list-pagination'},{'name': 'PostListSearchComponent', 'selector': 'app-post-list-search'},{'name': 'PostViewConsultationComponent', 'selector': 'app-post-view-consultation'},{'name': 'PostViewCreationComponent', 'selector': 'app-post-view-creation'},{'name': 'PostViewListComponent', 'selector': 'app-post-view-list'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductPaginationComponent', 'selector': 'app-product-pagination'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProductViewComponent', 'selector': 'app-product-view'}];
     var DIRECTIVES = [{'name': 'ProductConsumerBase', 'selector': '[product-consumer-base]'}];
-    var ACTUAL_COMPONENT = {'name': 'ProductPaginationComponent'};
+    var ACTUAL_COMPONENT = {'name': 'ProductViewComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -282,7 +297,7 @@ export class ProductPaginationComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'ProductPaginationComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductViewComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -177,19 +177,186 @@
     </table>
 </section>
 
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngDoCheck" >ngDoCheck</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
 
 
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/app.component.ts:8</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
 
 
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngDoCheck"></a>
+                    <span class="name">
+                        <span ><b>ngDoCheck</b></span>
+                        <a href="#ngDoCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngDoCheck()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/app/app.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/app.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="14"
+                                    class="link-to-prism">src/app/app.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnChanges, SimpleChanges } from &#x27;@angular/core&#x27;;
 
 @Component({
   selector: &#x27;app-root&#x27;,
@@ -198,12 +365,34 @@
 })
 export class AppComponent {
 
+  constructor(){
+    console.log(&#x27;1. constructor&#x27;)
+  }
+
+  ngOnInit(){
+    console.log(&#x27;2. ngOnInit&#x27;)
+  }
+
+  ngDoCheck(){
+    console.log(&#x27;3. ngDoCheck&#x27;)
+  }
+
+  ngOnDestroy(){
+    console.log(&#x27;3. ngDoCheck&#x27;)
+  }
+
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">Application
+
+&lt;a routerLink&#x3D;&quot;/products&quot;&gt;Products&lt;/a&gt; |
+&lt;a routerLink&#x3D;&quot;/posts&quot;&gt;Posts&lt;/a&gt;
+&lt;hr&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+
 </code></pre>
     </div>
 
@@ -233,9 +422,9 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>Application</div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductPaginationComponent', 'selector': 'app-product-pagination'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div>Application<a routerLink="/products">Products</a> |<a routerLink="/posts">Posts</a><hr><router-outlet></router-outlet></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'PostActionsComponent', 'selector': 'app-post-actions'},{'name': 'PostConsultationComponent', 'selector': 'app-post-consultation'},{'name': 'PostCreationFormComponent', 'selector': 'app-post-creation-form'},{'name': 'PostListComponent', 'selector': 'app-post-list'},{'name': 'PostListPaginationComponent', 'selector': 'app-post-list-pagination'},{'name': 'PostListSearchComponent', 'selector': 'app-post-list-search'},{'name': 'PostViewConsultationComponent', 'selector': 'app-post-view-consultation'},{'name': 'PostViewCreationComponent', 'selector': 'app-post-view-creation'},{'name': 'PostViewListComponent', 'selector': 'app-post-view-list'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductPaginationComponent', 'selector': 'app-product-pagination'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProductViewComponent', 'selector': 'app-product-view'}];
+    var DIRECTIVES = [{'name': 'ProductConsumerBase', 'selector': '[product-consumer-base]'}];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>
 <script src="../js/tree.js"></script>

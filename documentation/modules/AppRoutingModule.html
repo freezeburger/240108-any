@@ -138,8 +138,24 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
+import { ProductViewComponent } from &#x27;./product/views/product-view.component&#x27;;
 
-const routes: Routes &#x3D; [];
+const routes: Routes &#x3D; [
+  {
+    title: &#x27;Product Page&#x27;,
+    path: &#x27;products&#x27;,
+    component: ProductViewComponent
+  },
+  {
+    path: &#x27;posts&#x27;,
+    loadChildren:()&#x3D;&gt;&quot;import(&#x27;./post/post.module&#x27;).then(m &#x3D;&gt; m.PostModule )&quot;
+  },
+  {
+    path:&#x27;**&#x27;,
+    redirectTo:&#x27;products&#x27;,
+    pathMatch:&#x27;full&#x27;
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

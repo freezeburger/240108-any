@@ -86,159 +86,96 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content module">
                    <div class="content-data">
 
 
 
-
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Components</li>
-  <li class="breadcrumb-item"
-  >
-  ProductPaginationComponent</li>
+    <li class="breadcrumb-item">Modules</li>
+    <li class="breadcrumb-item" >PostRoutingModule</li>
 </ol>
 
+
 <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-            <a href="#info" class="nav-link active"
-                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li class="nav-item">
-            <a href="#source" class="nav-link"
-                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li class="nav-item">
-            <a href="#templateData" class="nav-link"
-                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li class="nav-item">
-            <a href="#tree" class="nav-link"
-                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
-        </li>
+    <li class="nav-item">
+        <a href="#info" 
+            class="nav-link"
+            class="nav-link active"
+            role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li class="nav-item">
+        <a href="#source" 
+            class="nav-link"
+            
+            role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+    </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/product/product-pagination/product-pagination.component.ts</code>
-</p>
+    <div class="tab-pane fade active in" id="info">
+
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/post/post-routing.module.ts</code>
+        </p>
 
 
 
 
 
-
-<section data-compodoc="block-metadata">
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover metadata">
-        <tbody>
-
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
 
 
-
-
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-product-pagination</code></td>
-            </tr>
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./product-pagination.component.html</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">styleUrl</td>
-                <td class="col-md-9"><code>./product-pagination.component.scss</code></td>
-            </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-
-
-
-
-
-
-
-
-</div>
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
+import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 
-@Component({
-  selector: &#x27;app-product-pagination&#x27;,
-  templateUrl: &#x27;./product-pagination.component.html&#x27;,
-  styleUrl: &#x27;./product-pagination.component.scss&#x27;
+// Local Components
+import { PostViewListComponent } from &#x27;./views/post-view-list.component&#x27;;
+import { PostViewCreationComponent } from &#x27;./views/post-view-creation.component&#x27;;
+import { PostViewConsultationComponent } from &#x27;./views/post-view-consultation.component&#x27;;
+
+const routes: Routes &#x3D; [
+      {
+        title: &#x27;Post List&#x27;,
+        path: &#x27;list&#x27;,     // posts/list
+        component: PostViewListComponent
+      },
+      {
+        title: &#x27;Post Creation&#x27;,
+        path: &#x27;create&#x27;,   // posts/create
+        component: PostViewCreationComponent
+      },
+      {
+        title: &#x27;Post Read&#x27;,
+        path: &#x27;read&#x27;,     // posts/read
+        component: PostViewConsultationComponent
+      },
+      {
+        // path:&#x27;&#x27;,       // posts/
+        path:&#x27;**&#x27;,        // posts/ANYTHING_NOT_PREVIOUSLY_DECLARED
+        redirectTo:&#x27;list&#x27;,
+        pathMatch:&#x27;prefix&#x27;
+      }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class ProductPaginationComponent {
-
-}
+export class PostRoutingModule { }
 </code></pre>
     </div>
-
-    <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;product-pagination works!&lt;/p&gt;
-</code></pre>
-    </div>
-
-
-    <div class="tab-pane fade " id="tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
-        </div>
-    </div>
-
-    
 </div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><p>product-pagination works!</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'PostActionsComponent', 'selector': 'app-post-actions'},{'name': 'PostConsultationComponent', 'selector': 'app-post-consultation'},{'name': 'PostCreationFormComponent', 'selector': 'app-post-creation-form'},{'name': 'PostListComponent', 'selector': 'app-post-list'},{'name': 'PostListPaginationComponent', 'selector': 'app-post-list-pagination'},{'name': 'PostListSearchComponent', 'selector': 'app-post-list-search'},{'name': 'PostViewConsultationComponent', 'selector': 'app-post-view-consultation'},{'name': 'PostViewCreationComponent', 'selector': 'app-post-view-creation'},{'name': 'PostViewListComponent', 'selector': 'app-post-view-list'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductPaginationComponent', 'selector': 'app-product-pagination'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProductViewComponent', 'selector': 'app-product-view'}];
-    var DIRECTIVES = [{'name': 'ProductConsumerBase', 'selector': '[product-consumer-base]'}];
-    var ACTUAL_COMPONENT = {'name': 'ProductPaginationComponent'};
-</script>
-<script src="../js/tree.js"></script>
 
 
 
@@ -281,8 +218,8 @@ export class ProductPaginationComponent {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'ProductPaginationComponent.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'PostRoutingModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

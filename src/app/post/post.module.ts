@@ -10,7 +10,7 @@ import { PostViewListComponent } from './views/post-view-list.component';
 import { PostViewCreationComponent } from './views/post-view-creation.component';
 import { PostViewConsultationComponent } from './views/post-view-consultation.component';
 import { PostService } from './services/post.service';
-
+import { PostRoutingModule } from './post-routing.module';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { PostService } from './services/post.service';
     PostService
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PostRoutingModule
   ],
   exports: [
     PostListComponent,

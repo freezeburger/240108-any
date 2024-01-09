@@ -7,6 +7,7 @@ import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductConsumerBase } from './product-consumer.base';
 import { ProductViewComponent } from './views/product-view.component';
+import { ProductRoutingModule } from './product-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductViewComponent } from './views/product-view.component';
   imports: [
     CommonModule,
     NgOptimizedImage,
-    HttpClientModule
+    HttpClientModule,
+    ProductRoutingModule
   ],
   exports: [
     ProductSearchComponent,

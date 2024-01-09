@@ -86,168 +86,179 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content interface">
                    <div class="content-data">
 
 
 
 
+
+
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item">Interfaces</li>
   <li class="breadcrumb-item"
   >
-  ProductPaginationComponent</li>
+  ServerResponse</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a href="#info" class="nav-link active"
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
-            <a href="#source" class="nav-link"
+            <a href="#source" 
+                class="nav-link"
+                
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li class="nav-item">
-            <a href="#templateData" class="nav-link"
-                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li class="nav-item">
-            <a href="#tree" class="nav-link"
-                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/product/product-pagination/product-pagination.component.ts</code>
-</p>
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/product/services/product.service.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#products" 
+>
+                                            products
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="products"></a>
+                                        <span class="name "><b>products</b>
+                                            <a href="#products">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>products:         <code><a href="../interfaces/Product.html" target="_self" >Product[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Product.html" target="_self" >Product[]</a></code>
+
+                                        </td>
+                                    </tr>
 
 
 
 
 
-
-<section data-compodoc="block-metadata">
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover metadata">
-        <tbody>
-
-
-
-
-
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-product-pagination</code></td>
-            </tr>
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./product-pagination.component.html</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">styleUrl</td>
-                <td class="col-md-9"><code>./product-pagination.component.scss</code></td>
-            </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-
-
-
-
-
-
-
-
-</div>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Inject, Injectable, inject } from &#x27;@angular/core&#x27;;
+import { Product } from &#x27;../interfaces/product&#x27;;
+import { BehaviorSubject } from &#x27;rxjs&#x27;;
 
-@Component({
-  selector: &#x27;app-product-pagination&#x27;,
-  templateUrl: &#x27;./product-pagination.component.html&#x27;,
-  styleUrl: &#x27;./product-pagination.component.scss&#x27;
-})
-export class ProductPaginationComponent {
+const ENDPOINT &#x3D; &#x27;https://dummyjson.com/products&#x27;
+
+interface ServerResponse{
+  products:Product[]
+}
+
+export enum CommandType{
+  SEARCH,
+  GET_ALL
+}
+
+interface Command{
+  name:CommandType;
+  payload:null | string;
+}
+
+@Injectable()
+export class ProductService {
+
+  private http &#x3D; inject(HttpClient);
+
+  private _collection &#x3D; new BehaviorSubject&lt;Product[]&gt;([]);
+  public collection &#x3D; this._collection.asObservable();
+
+  // Surcharge TypeScript
+  public execute(command:{name:CommandType.GET_ALL, payload:null}):void;
+  public execute(command:{name:CommandType.SEARCH, payload:string}):void;
+  public execute(command:Command): void{
+    switch (command.name) {
+      case CommandType.GET_ALL:
+        this.getAll();
+        break;
+      case CommandType.SEARCH:
+        this.search(command.payload as string);
+        break;
+      default:
+        break;
+    }
+  }
+
+  private getAll(){
+    this.http.get&lt;ServerResponse&gt;(ENDPOINT).subscribe(data &#x3D;&gt; this._collection.next(data.products) );
+  }
+
+  private search(keyword:string){
+    this.http.get&lt;ServerResponse&gt;(&#x60;${ENDPOINT}/search?q&#x3D;${keyword}&#x60;).subscribe(data &#x3D;&gt; this._collection.next(data.products) );
+  }
 
 }
 </code></pre>
     </div>
-
-    <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;product-pagination works!&lt;/p&gt;
-</code></pre>
-    </div>
-
-
-    <div class="tab-pane fade " id="tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
-        </div>
-    </div>
-
-    
 </div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><p>product-pagination works!</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'PostActionsComponent', 'selector': 'app-post-actions'},{'name': 'PostConsultationComponent', 'selector': 'app-post-consultation'},{'name': 'PostCreationFormComponent', 'selector': 'app-post-creation-form'},{'name': 'PostListComponent', 'selector': 'app-post-list'},{'name': 'PostListPaginationComponent', 'selector': 'app-post-list-pagination'},{'name': 'PostListSearchComponent', 'selector': 'app-post-list-search'},{'name': 'PostViewConsultationComponent', 'selector': 'app-post-view-consultation'},{'name': 'PostViewCreationComponent', 'selector': 'app-post-view-creation'},{'name': 'PostViewListComponent', 'selector': 'app-post-view-list'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductPaginationComponent', 'selector': 'app-product-pagination'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProductViewComponent', 'selector': 'app-product-view'}];
-    var DIRECTIVES = [{'name': 'ProductConsumerBase', 'selector': '[product-consumer-base]'}];
-    var ACTUAL_COMPONENT = {'name': 'ProductPaginationComponent'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -281,8 +292,8 @@ export class ProductPaginationComponent {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'ProductPaginationComponent.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ServerResponse.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

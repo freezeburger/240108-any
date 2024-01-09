@@ -1,5 +1,8 @@
 # AngularTraining
+
 # Fonctionnal 
+
+REPOSITORY : https://github.com/freezeburger/240108-any
 
 > Consume API : https://dummyjson.com/products
 * Provides :  search, listing and pagination
