@@ -1,0 +1,21 @@
+<p>product-list works!</p>
+
+<ul>
+  <li *ngFor="let item of ( products | async )">
+    <h1>{{item.title}}</h1>
+    <p>{{item.description}}</p>
+    <img [src]="item.thumbnail" alt="A product">
+    <strong>{{item.price}}</strong>
+  </li>
+</ul>
+
+<app-product-pagination
+  *ngIf="withPagination">
+</app-product-pagination>
+
+<!--
+Control Flow
+@if (withPagination) {
+  <app-product-pagination></app-product-pagination>
+}
+ -->

@@ -1,4 +1,8 @@
 # AngularTraining
+# Fonctionnal 
+
+> Consume API : https://dummyjson.com/products
+* Provides :  search, listing and pagination
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
