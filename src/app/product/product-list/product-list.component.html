@@ -1,18 +1,22 @@
-<p>product-list works!</p>
+<section>
 
-<ul>
-  <li *ngFor="let item of ( products | async )">
-    <h1>{{item.title}}</h1>
-    <p>{{item.description}}</p>
-    <img [src]="item.thumbnail" alt="A product">
-    <strong>{{item.price}}</strong>
-  </li>
-</ul>
+    <ace-card *ngFor="let item of ( products | async )">
 
-<app-product-pagination
-  *ngIf="withPagination">
-</app-product-pagination>
+      <ng-container class="ace-card-title">{{item.title}}</ng-container>
 
+      <ng-container class="ace-card-text">{{item.description}}</ng-container>
+
+      <ace-image [source]="item.thumbnail" alternateText="A product"></ace-image>
+
+      <ng-container class="ace-card-infos">{{item.price}}</ng-container>
+
+    </ace-card>
+
+
+  <app-product-pagination *ngIf="withPagination">
+  </app-product-pagination>
+
+</section>
 <!--
 Control Flow
 @if (withPagination) {

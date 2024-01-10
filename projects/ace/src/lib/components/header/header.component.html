@@ -1,0 +1,11 @@
+<div class="navbar bg-primary text-white p-3">
+  <h1><ng-content></ng-content></h1>
+</div>
+
+<!-- ul.nav.nav-pills -->
+<ul class="nav nav-pills bg-secondary-subtle p-2">
+  <!-- li.nav-item>a.nav-link -->
+  <li class="nav-item" *ngFor="let item of menuItems">
+    <a [routerLink]=" [ '/', item.path ]" class="nav-link" routerLinkActive="active">{{ item.label | uppercase }}</a>
+  </li>
+</ul>

@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from '@shared';
+import { CoreModule } from '@core';
+
 import { AppComponent } from './app.component';
+
+import { AppRoutingModule } from './app-routing.module';
+
 
 // Lazy Loaded
 /*
@@ -17,6 +22,8 @@ import { PostModule } from './post/post.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
+    SharedModule,
     // Features
 
     // Lazy Loaded
@@ -24,8 +31,6 @@ import { PostModule } from './post/post.module';
     // PostModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  exports: [
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

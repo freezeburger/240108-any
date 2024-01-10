@@ -1,4 +1,12 @@
-import { AbsoluteURL, Categories, DoubleDecimal, Integer, TextLong, TextShort, UniqueId } from "./generics";
+import {
+  AbsoluteURL,
+  Categories,
+  DoubleDecimal,
+  Integer,
+  TextLong,
+  TextShort,
+  UniqueId
+} from "@core";
 
 
 export interface Product {
